@@ -16,6 +16,7 @@ def make_executable_command(command: str) -> str:
     if command.endswith('\n'):
         command = command[:-1]
     command = command.strip()
+    command = command.split('User: ')[0]
     return command
 
 
@@ -32,7 +33,7 @@ def get_os() -> str:
 def make_prompt(requirements: str) -> str:
     return f'''You are now a translater from human language to {get_os} shell command.
     No explanation required, respond with only the raw shell command.
-    What should I type to shell for: {requirements}'''
+    What should I type to shell for: {requirements}, in one line.'''
 
 
 app = typer.Typer()
