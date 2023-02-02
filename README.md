@@ -2,15 +2,20 @@
 
 A simple Python code that connects to OpenAI's ChatGPT and executes the returned results.
 
-## Examples 💡
+## Key Features
+
+- Interact with your computer using natural language
+- Automatically executes the command from the response of ChatGPT
+- Good for complex tasks like handling Git and extracting tar files
+- No need to search StackOverflow for commands, AiShell has got you covered
 
 ### Simple Utility commands 🛠
 
-[![utility](https://asciinema.org/a/556670.svg)](https://asciinema.org/a/556670)
+[![utility](https://asciinema.org/a/556670.svg)](https://asciinema.org/a/556670?speed=5)
 
 ### A powerful git assistant 💪🏻👨‍💻💻
 
-[![git assistant](https://asciinema.org/a/556675.svg)](https://asciinema.org/a/556677)
+[![git assistant](https://asciinema.org/a/556677.svg)](https://asciinema.org/a/556677?speed=5)
 
 ## Installation
 
