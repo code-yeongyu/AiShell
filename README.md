@@ -6,15 +6,11 @@ A simple Python code that connects to OpenAI's ChatGPT and executes the returned
 
 ### Simple Utility commands 🛠
 
-![terminal example](images/aishell_example.png)
+[![utility](https://asciinema.org/a/556670.svg)](https://asciinema.org/a/556670)
 
-### A git helper 💻
+### A powerful git assistant 💪🏻👨‍💻💻
 
-![terminal example](images/aishell_example2.png)
-
-### A powerful git assistant 💪🏻👨‍💻💻: "add all files & amend last commit & push"
-
-![terminal example3](images/aishell_example3.png)
+[![git assistant](https://asciinema.org/a/556675.svg)](https://asciinema.org/a/556677)
 
 ## Installation
 
