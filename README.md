@@ -2,7 +2,7 @@
 
 A simple Python code that connects to OpenAI's ChatGPT and executes the returned results.
 
-## Key Features
+## Key Features 💡
 
 - Interact with your computer using natural language
 - Automatically executes the command from the response of ChatGPT
@@ -17,7 +17,7 @@ A simple Python code that connects to OpenAI's ChatGPT and executes the returned
 
 [![git assistant](https://asciinema.org/a/556677.svg)](https://asciinema.org/a/556677?speed=5)
 
-## Installation
+## Installation 🔧
 
 ```sh
 curl -sL https://raw.githubusercontent.com/code-yeongyu/AiShell/master/install.sh | sh
