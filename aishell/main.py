@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-from revChatGPT.Official import Chatbot
-
 import os
+
 import typer
+from revChatGPT.Official import Chatbot
 
 API_KEY = os.environ.get('OPENAI_API_KEY') or ''
 
@@ -47,7 +47,7 @@ app = typer.Typer()
 def ask(text: str):
     question = make_prompt(text)
     response = ask_chatgpt(question)
-    typer.echo(f'\033[3mexecuted: {response}\033[0m')
+    typer.echo(f'\033[3mexecuting: {response}\033[0m')
     os.system(response)
 
 
