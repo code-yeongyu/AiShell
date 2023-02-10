@@ -4,7 +4,7 @@
 curl -o main.py https://raw.githubusercontent.com/code-yeongyu/AiShell/master/aishell/main.py
 
 # Install required packages using pip
-pip install typer[all] revchatgpt
+pip install --upgrade typer[all] revchatgpt openai pydantic
 
 # Make the python file executable
 chmod +x main.py
