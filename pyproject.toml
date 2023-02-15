@@ -1,5 +1,5 @@
 [build-system]
-requires = [ "poetry-core",]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
@@ -39,8 +39,8 @@ typeCheckingMode = "strict"
 stubPath = "./.type_stubs"
 venvPath = "./.venv"
 pythonPlatform = "All"
-include = [ "./*",]
-exclude = [ "**/node_modules", "**/__pycache__",]
+include = ["./*"]
+exclude = ["**/node_modules", "**/__pycache__"]
 useLibraryCodeForTypes = true
 verboseOutput = false
 reportMissingTypeStubs = false
@@ -55,7 +55,7 @@ allow_split_before_dict_value = false
 
 [tool.ruff]
 line-length = 119
-select = [ "PLC", "PLE", "PLR", "PLW", "E", "W", "F", "I", "Q", "C", "B",]
+select = ["PLE", "PLR", "PLW", "E", "W", "F", "I", "Q", "C", "B"]
 
 [tool.autoflake]
 check = false
@@ -71,7 +71,7 @@ remove-unused-variables = true
 python = "^3.8"
 poetry = "^1.3.1"
 revchatgpt = "^1.0.7"
-typer = {extras = ["all"], version = "^0.7.0"}
+typer = { extras = ["all"], version = "^0.7.0" }
 openai = "^0.26.5"
 pydantic = "^1.10.4"
 
