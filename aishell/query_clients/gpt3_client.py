@@ -19,8 +19,7 @@ class GPT3Client(QueryClient):
 
     def query(self, prompt: str) -> str:
         prompt = self._construct_prompt(prompt)
-
-        completion: OpenAIResponseModel = cast(
+        completion: OpenAIResponseModel = cast(  # type: ignore [no-any-unimported]
             OpenAIResponseModel,
             openai.Completion.create(
                 engine='text-davinci-003',

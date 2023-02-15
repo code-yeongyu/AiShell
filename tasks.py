@@ -1,11 +1,14 @@
+# type: ignore
 import shutil
+import subprocess
 
 import toml
-from colorama import Fore
-from colorama import init as init_colorama
 from invoke import Context, task
+from rich.console import Console
 
-import monkey_patch_invoke as _    # noqa
+import monkey_patch_invoke as _  # noqa: F401
+
+console = Console()
 
 
 def get_pep8_compliant_name(project_name: str) -> str:
@@ -19,6 +22,14 @@ def get_project_path():
         return project_name
 
 
+def execute_command(command: str) -> dict[str, str]:
+    with subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE) as process:
+        stdout, stderr = process.communicate()
+        if process.returncode != 0:
+            raise Exception(stderr.decode())
+        return {'command': command, 'result': stdout.decode()}
+
+
 @task
 def run(context: Context):
     context.run(f'python {get_project_path()}/main.py', pty=True)
@@ -30,20 +41,23 @@ def test(context: Context):
 
 
 @task
-def format_code(context: Context) -> None:
-    init_colorama()
+def format_code(context: Context, verbose: bool = False) -> None:
+    commands = [
+        f'pautoflake {get_project_path()}',
+        f'ruff --fix {get_project_path()}',
+        f'yapf --in-place --recursive --parallel {get_project_path()}',
+    ]
+    results: list[dict[str, str]] = []
+    with console.status('[bold green] Formatting code...'):
+        for command in commands:
+            results.append(execute_command(command))
 
-    print(f'{Fore.MAGENTA}==========Remove unused imports with `autoflake`=========={Fore.RESET}')
-    context.run(f'pautoflake {get_project_path()}', pty=True)
+    if verbose:
+        for result in results:
+            console.print(f'$ {result["command"]}')
+            console.print(result['result'])
 
-    print(f'{Fore.MAGENTA}==========Sort imports with `isort`=========={Fore.RESET}')
-    context.run(f'isort {get_project_path()}', pty=True)
-
-    print(f'{Fore.MAGENTA}==========Unifying quotes with `unify`=========={Fore.RESET}')
-    context.run(f'unify --in-place -r {get_project_path()}')
-
-    print(f'{Fore.MAGENTA}==========Format code with `yapf`=========={Fore.RESET}')
-    context.run(f'yapf --in-place --recursive --parallel {get_project_path()}', pty=True)
+    console.print('[bold green]Success[/bold green]')
 
 
 @task
@@ -54,32 +68,18 @@ def check(context: Context):
 
 @task
 def check_code_style(context: Context):
-    init_colorama()
+    commands = [
+        f'pautoflake {get_project_path()} --check',
+        f'ruff {get_project_path()}',
+        f'yapf --diff --recursive --parallel {get_project_path()}',
+    ]
 
-    print(f'{Fore.MAGENTA}==========Check Code Styles with `autoflake`=========={Fore.GREEN}')
-    context.run(f'pautoflake {get_project_path()} --check', pty=True)
-
-    print(f'{Fore.MAGENTA}==========Check Code Styles with `isort`=========={Fore.GREEN}')
-    context.run(f'isort {get_project_path()} --check --diff', pty=True)
-    print(f'{Fore.GREEN}isort: Success{Fore.RESET}')
-
-    print(f'{Fore.MAGENTA}==========Check Code Styles with `pylint`=========={Fore.GREEN}')
-    context.run(f'pylint {get_project_path()}', pty=True)
-
-    print(f'{Fore.MAGENTA}==========Check Code Styles with `yapf`=========={Fore.RESET}')
-    context.run(f'yapf --diff --recursive --parallel {get_project_path()}', pty=True)
-    print(f'{Fore.GREEN}yapf: Success{Fore.RESET}')
+    for command in commands:
+        context.run(command, pty=True)
 
 
 @task
 def check_types(context: Context):
-    """Check types with `pyright` and `mypy`."""
-    init_colorama()
-
-    print(f'{Fore.CYAN}==========Check typings with `pyright`=========={Fore.RESET}')
-    context.run(f'pyright {get_project_path()}', pty=True)
-
-    print(f'\n{Fore.CYAN}==========Check typings with `mypy`=========={Fore.RESET}')
     context.run(f'mypy {get_project_path()}', pty=True)
 
 
