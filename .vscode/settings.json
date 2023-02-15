@@ -22,19 +22,12 @@
     "python.linting.mypyArgs": [
         "--config-file ${workspaceFolder}/pyproject.toml"
     ],
-    "isort.path": [
-        "${workspaceFolder}/.venv/bin/isort"
-    ],
     "python.testing.pytestEnabled": true,
     "python.testing.pytestArgs": [
         "."
     ],
     "emeraldwalk.runonsave": {
         "commands": [
-            {
-                "match": "\\.py$",
-                "cmd": "${workspaceFolder}/.venv/bin/unify --in-place ${file}"
-            },
             {
                 "match": "\\.py$",
                 "cmd": "${workspaceFolder}/.venv/bin/pautoflake --in-place ${file}"
