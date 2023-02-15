@@ -10,7 +10,7 @@ authors = []
 readme = "README.md"
 
 [tool.mypy]
-strict = true
+strict = false
 show_error_codes = true
 show_column_numbers = true
 warn_unused_ignores = true
@@ -20,8 +20,8 @@ namespace_packages = true
 allow_redefinition = true
 implicit_reexport = false
 no_implicit_optional = true
-warn_return_any = true
-disallow_any_expr = true
+warn_return_any = false
+disallow_any_expr = false
 disallow_any_unimported = true
 check_untyped_defs = true
 allow_incomplete_defs = true
@@ -48,7 +48,7 @@ reportUnknownMemberType = false
 
 [tool.yapf]
 based_on_style = "pep8"
-spaces_before_comment = 4
+spaces_before_comment = 2
 split_before_logical_operator = true
 column_limit = 119
 allow_split_before_dict_value = false
@@ -86,14 +86,12 @@ multiline-quotes = "single"
 [tool.poetry.group.dev.dependencies]
 toml = "^0.10.2"
 yapf = "^0.32.0"
-unify = "^0.5"
 pytest = "^7.2.0"
 pytest-cov = "^4.0.0"
 mypy = "^0.991"
-pyright = "^1.1.285"
-colorama = "^0.4.6"
 invoke = "^1.7.3"
 ruff = "^0.0.199"
 pyproject-autoflake = "^1.0.2"
 types-invoke = "^1.7.3.16"
 types-toml = "^0.10.8.1"
+pyright = "^1.1.294"

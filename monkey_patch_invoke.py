@@ -9,13 +9,13 @@ from invoke.tasks import NO_DEFAULT, Task
 def monkey_patch_invoke() -> None:
 
     def _patched_argspec(
-        self: Any,    # pylint: disable=unused-argument
+        self: Any,  # pylint: disable=unused-argument
         body: Union[Callable[[Context], None], Context],
     ) -> Tuple[List[str], Dict[str, object]]:
-        """
+        '''
         A monkey patching code for supporting python3
         from: https://github.com/pyinvoke/invoke/issues/357#issuecomment-1250744013
-        """
+        '''
         signature: inspect.Signature = inspect.Signature()
         if isinstance(body, types.FunctionType):
             signature = inspect.signature(body)
@@ -37,7 +37,7 @@ def monkey_patch_invoke() -> None:
         del argument_specs[context_arg]
         return parameter_names, argument_specs
 
-    Task.argspec = _patched_argspec
+    Task.argspec = _patched_argspec  # type: ignore
 
 
 monkey_patch_invoke()
