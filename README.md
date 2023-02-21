@@ -48,6 +48,4 @@ python -m aishell --help
 
 ## Contributions 💬
 
-Feel free to contribute to AiShell by adding more functionality or fixing bugs. Some suggestions for contributions include:
-
-- Publishing AiShell to PyPI so that others can easily download and use it
+Feel free to contribute to AiShell by adding more functionality or fixing bugs.
