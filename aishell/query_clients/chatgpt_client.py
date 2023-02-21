@@ -36,8 +36,8 @@ class ChatGPTClient(QueryClient):
 
         response_text = ''
         for data in chatbot.ask(prompt):
-            responsed_text = data['message']
+            response_text = data['message']
 
-        responsed_text = make_executable_command(responsed_text)
+        response_text = make_executable_command(response_text)
 
         return response_text

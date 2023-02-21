@@ -2,8 +2,9 @@ import os
 from typing import cast
 
 import openai
-from models import OpenAIResponseModel
-from utils import make_executable_command
+
+from aishell.models import OpenAIResponseModel
+from aishell.utils import make_executable_command
 
 from .query_client import QueryClient
 
