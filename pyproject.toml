@@ -9,42 +9,21 @@ description = ""
 authors = []
 readme = "README.md"
 
-[tool.mypy]
-strict = false
-show_error_codes = true
-show_column_numbers = true
-warn_unused_ignores = true
-ignore_missing_imports = true
-follow_imports = "normal"
-namespace_packages = true
-allow_redefinition = true
-implicit_reexport = false
-no_implicit_optional = true
-warn_return_any = false
-disallow_any_expr = false
-disallow_any_unimported = true
-check_untyped_defs = true
-allow_incomplete_defs = true
-allow_untyped_defs = true
-allow_untyped_calls = true
-
-[tool.pydantic-mypy]
-init_forbid_extra = true
-init_typed = true
-warn_required_dynamic_aliases = true
-warn_untyped_fields = true
-
 [tool.pyright]
 typeCheckingMode = "strict"
-stubPath = "./.type_stubs"
-venvPath = "./.venv"
+
+# Python environment settings
 pythonPlatform = "All"
+venvPath = "./.venv"
+stubPath = "./.type_stubs"
 include = ["./*"]
 exclude = ["**/node_modules", "**/__pycache__"]
-useLibraryCodeForTypes = true
-verboseOutput = false
-reportMissingTypeStubs = false
-reportUnknownMemberType = false
+
+# For untyped modules
+useLibraryCodeForTypes = true   # Attempt to read and infer types from third-party modules if no stub files are present
+reportMissingTypeStubs = false  # Ignore errors from modules without type stubs
+reportUnknownMemberType = false # Ignore errors from untyped function calls in third-party modules
+
 
 [tool.yapf]
 based_on_style = "pep8"
@@ -57,26 +36,14 @@ allow_split_before_dict_value = false
 line-length = 119
 select = ["PLE", "PLR", "PLW", "E", "W", "F", "I", "Q", "C", "B"]
 
-[tool.autoflake]
-check = false
-in-place = true
-recursive = true
-expand-star-imports = true
-remove-all-unused-imports = true
-ignore-init-module-imports = true
-remove-duplicate-keys = true
-remove-unused-variables = true
-
 [tool.poetry.dependencies]
 python = "^3.8"
 poetry = "^1.3.1"
-revchatgpt = "^1.0.7"
+revchatgpt = "^2.2.7"
 typer = { extras = ["all"], version = "^0.7.0" }
 openai = "^0.26.5"
 pydantic = "^1.10.4"
-
-[tool.pyright.defineConstant]
-DEBUG = true
+pyright = "^1.1.294"
 
 [tool.ruff.flake8-quotes]
 inline-quotes = "single"
@@ -88,10 +55,8 @@ toml = "^0.10.2"
 yapf = "^0.32.0"
 pytest = "^7.2.0"
 pytest-cov = "^4.0.0"
-mypy = "^0.991"
 invoke = "^1.7.3"
 ruff = "^0.0.199"
-pyproject-autoflake = "^1.0.2"
 types-invoke = "^1.7.3.16"
 types-toml = "^0.10.8.1"
 pyright = "^1.1.294"
