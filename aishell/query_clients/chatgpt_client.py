@@ -1,20 +1,29 @@
 import os
 from typing import Optional
 
-from revChatGPT.Official import Chatbot
-from utils import make_executable_command
+from revChatGPT.V1 import Chatbot
+
+from aishell.utils import make_executable_command
 
 from .query_client import QueryClient
 
 
 class ChatGPTClient(QueryClient):
+    access_key: str
 
-    def __init__(self, api_key: Optional[str] = None):
+    def __init__(
+        self,
+        chatgpt_access_key: Optional[str] = None,
+    ):
         super().__init__()
-        OPEN_API_KEY = os.environ.get('OPENAI_API_KEY')
-        if api_key is None or OPEN_API_KEY is None:
-            raise Exception('api_key should not be none')
-        self.API_KEY = api_key or OPEN_API_KEY
+        CHATGPT_ACCESS_KEY = os.environ.get('CHATGPT_ACCESS_KEY')
+
+        if chatgpt_access_key is not None:
+            self.access_key = chatgpt_access_key
+        elif CHATGPT_ACCESS_KEY is not None:
+            self.access_key = CHATGPT_ACCESS_KEY
+        else:
+            raise Exception('access_key should not be none')
 
     def _construct_prompt(self, text: str) -> str:
         return f'''You are now a translater from human language to {os.uname()[0]} shell command.
@@ -23,6 +32,12 @@ class ChatGPTClient(QueryClient):
 
     def query(self, prompt: str) -> str:
         prompt = self._construct_prompt(prompt)
-        chatbot = Chatbot(api_key=self.API_KEY)
-        response_text: str = chatbot.ask(prompt)['choices'][0]['text']
-        return make_executable_command(response_text)
+        chatbot = Chatbot(config={'access_token': self.access_key})
+
+        response_text = ''
+        for data in chatbot.ask(prompt):
+            responsed_text = data['message']
+
+        responsed_text = make_executable_command(responsed_text)
+
+        return response_text
