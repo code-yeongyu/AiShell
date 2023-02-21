@@ -20,7 +20,7 @@ A simple Python code that connects to OpenAI's ChatGPT and executes the returned
 ## Installation 🔧
 
 ```sh
-curl -sL https://raw.githubusercontent.com/code-yeongyu/AiShell/master/install.sh | sh
+pip install aishell
 ```
 
 ## Prerequisites 📚
