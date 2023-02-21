@@ -1,14 +1,10 @@
 # type: ignore
 import shutil
-import subprocess
 
 import toml
 from invoke import Context, task
-from rich.console import Console
 
 import monkey_patch_invoke as _  # noqa: F401
-
-console = Console()
 
 
 def get_pep8_compliant_name(project_name: str) -> str:
@@ -22,14 +18,6 @@ def get_project_path():
         return project_name
 
 
-def execute_command(command: str) -> dict[str, str]:
-    with subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE) as process:
-        stdout, stderr = process.communicate()
-        if process.returncode != 0:
-            raise Exception(stderr.decode())
-        return {'command': command, 'result': stdout.decode()}
-
-
 @task
 def run(context: Context):
     context.run(f'python {get_project_path()}/main.py', pty=True)
@@ -41,23 +29,15 @@ def test(context: Context):
 
 
 @task
-def format_code(context: Context, verbose: bool = False) -> None:
+def format_code(context: Context, verbose: bool = False):
     commands = [
         f'pautoflake {get_project_path()}',
         f'ruff --fix {get_project_path()}',
         f'yapf --in-place --recursive --parallel {get_project_path()}',
     ]
-    results: list[dict[str, str]] = []
-    with console.status('[bold green] Formatting code...'):
-        for command in commands:
-            results.append(execute_command(command))
 
-    if verbose:
-        for result in results:
-            console.print(f'$ {result["command"]}')
-            console.print(result['result'])
-
-    console.print('[bold green]Success[/bold green]')
+    for command in commands:
+        context.run(command, pty=True)
 
 
 @task
@@ -69,7 +49,6 @@ def check(context: Context):
 @task
 def check_code_style(context: Context):
     commands = [
-        f'pautoflake {get_project_path()} --check',
         f'ruff {get_project_path()}',
         f'yapf --diff --recursive --parallel {get_project_path()}',
     ]
