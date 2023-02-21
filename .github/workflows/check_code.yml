@@ -24,7 +24,7 @@ jobs:
         id: cache-dependencies
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+          key: venv-${{ runner.os }}-${{ hashFiles('./poetry.lock') }}
 
       - name: Install Dependencies if cache doesn't hit
         if: steps.cache-dependencies.cache-hit != 'true'
