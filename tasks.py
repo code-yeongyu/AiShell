@@ -80,7 +80,7 @@ def check_code_style(context: Context):
 
 @task
 def check_types(context: Context):
-    context.run(f'mypy {get_project_path()}', pty=True)
+    context.run(f'pyright {get_project_path()}', pty=True)
 
 
 @task
