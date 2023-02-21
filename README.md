@@ -23,6 +23,12 @@ A simple Python code that connects to OpenAI's ChatGPT and executes the returned
 pip install aishell
 ```
 
+## Usage 📝
+
+```sh
+python -m aishell --help
+```
+
 ## Prerequisites 📚
 
 - Python 3.9.5
