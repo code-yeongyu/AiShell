@@ -1,0 +1,37 @@
+name: Check Code
+on:
+  pull_request:
+
+jobs:
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - uses: snok/install-poetry@v1.3.3
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        id: cache-dependencies
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install Dependencies if cache doesn't hit
+        if: steps.cache-dependencies.cache-hit != 'true'
+        run: poetry install
+
+      - name: Check Code Styles
+        run: poetry run invoke check-code-style
+
+      - name: Check Types
+        run: poetry run invoke check-types
