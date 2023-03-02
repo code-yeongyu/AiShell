@@ -6,20 +6,16 @@
 
 A simple Python code that connects to OpenAI's ChatGPT and executes the returned results.
 
+## Demo
+
+![Demo](images/example.gif)
+
 ## Key Features 💡
 
 - Interact with your computer using natural language
 - Automatically executes the command from the response of ChatGPT
 - Good for complex tasks like handling Git and extracting tar files
 - No need to search StackOverflow for commands, AiShell has got you covered
-
-### Simple Utility commands 🛠
-
-[![utility](https://asciinema.org/a/556670.svg)](https://asciinema.org/a/556670?speed=5)
-
-### A powerful git assistant 💪🏻👨‍💻💻
-
-[![git assistant](https://asciinema.org/a/556677.svg)](https://asciinema.org/a/556677?speed=5)
 
 ## Installation 🔧
 
@@ -30,7 +26,7 @@ pip install aishell
 ## Usage 📝
 
 ```sh
-python -m aishell --help
+aishell --help
 ```
 
 ## Prerequisites 📚
@@ -41,10 +37,23 @@ python -m aishell --help
 
 ## Getting Started 🚀
 
+### For those who want to use reverse-engineered `ChatGPT`
+
+1. Login on <https://chat.openai.com/>
+1. Get your 'accessToken` from <https://chat.openai.com/api/auth/session>
+1. `export CHATGPT_ACCESS_KEY=<your access token>`
+1. Enjoy AiShell
+
+### For those who want to use `GPT-3`
+
 1. Create account on OpenAI
 1. Go to <https://platform.openai.com/account/api-keys>, Copy API key
 1. Set the API key as an environment variable `OPENAI_API_KEY` or inject it directly into the code by editing it.
-1. [Install](#installation)
+1. Enjoy AiShell
+
+### For those who want to use Official ChatGPT API `gpt-3.5-turbo`
+
+- Currently not supported, but soon will be supported!
 
 ## Contributions 💬
 
