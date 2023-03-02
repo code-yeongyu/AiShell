@@ -43,16 +43,12 @@ aishell --help
 1. Set the API key as an environment variable `CHATGPT_ACCESS_KEY`
 1. Enjoy AiShell
 
-### For those who want to use `GPT-3`
+### For those who want to use `Official ChatGPT(GPT3.5-turbo)` or `GPT-3`
 
 1. Create account on OpenAI
 1. Go to <https://platform.openai.com/account/api-keys>, Copy API key
 1. Set the API key as an environment variable `OPENAI_API_KEY`
 1. Enjoy AiShell
-
-### For those who want to use Official ChatGPT API `gpt-3.5-turbo`
-
-- Currently not supported, but soon will be supported!
 
 ## Contributions 💬
 
