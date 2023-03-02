@@ -3,6 +3,7 @@ from typing import Final, Optional
 
 from revChatGPT.V3 import Chatbot
 
+from aishell.exceptions import UnauthorizedAccessError
 from aishell.utils import make_executable_command
 
 from .query_client import QueryClient
@@ -18,7 +19,7 @@ class OfficialChatGPTClient(QueryClient):
         super().__init__()
         OPENAI_API_KEY: Final[Optional[str]] = os.environ.get('OPENAI_API_KEY', openai_api_key)
         if OPENAI_API_KEY is None:
-            raise Exception('OPENAI_API_KEY should not be none')
+            raise UnauthorizedAccessError('OPENAI_API_KEY should not be none')
 
         self.openai_api_key = OPENAI_API_KEY
 
