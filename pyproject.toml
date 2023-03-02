@@ -39,7 +39,7 @@ select = ["PLE", "PLR", "PLW", "E", "W", "F", "I", "Q", "C", "B"]
 [tool.poetry.dependencies]
 python = "^3.8"
 poetry = "^1.3.1"
-revchatgpt = "^2.2.7"
+revchatgpt = "^3.0.5"
 typer = { extras = ["all"], version = "^0.7.0" }
 openai = "^0.26.5"
 pydantic = "^1.10.4"
