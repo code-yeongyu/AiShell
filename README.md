@@ -8,7 +8,7 @@ A simple Python code that connects to OpenAI's ChatGPT and executes the returned
 
 ## Demo
 
-![Demo](images/example.gif)
+![Demo](https://raw.githubusercontent.com/code-yeongyu/AiShell/master/images/example.gif)
 
 ## Key Features 💡
 
@@ -31,9 +31,8 @@ aishell --help
 
 ## Prerequisites 📚
 
-- Python 3.9.5
-- Poetry
-- OpenAI API Key
+- Python 3
+- OpenAI API Key or ChatGPT Account
 
 ## Getting Started 🚀
 
@@ -41,14 +40,14 @@ aishell --help
 
 1. Login on <https://chat.openai.com/>
 1. Get your 'accessToken` from <https://chat.openai.com/api/auth/session>
-1. `export CHATGPT_ACCESS_KEY=<your access token>`
+1. Set the API key as an environment variable `CHATGPT_ACCESS_KEY`
 1. Enjoy AiShell
 
 ### For those who want to use `GPT-3`
 
 1. Create account on OpenAI
 1. Go to <https://platform.openai.com/account/api-keys>, Copy API key
-1. Set the API key as an environment variable `OPENAI_API_KEY` or inject it directly into the code by editing it.
+1. Set the API key as an environment variable `OPENAI_API_KEY`
 1. Enjoy AiShell
 
 ### For those who want to use Official ChatGPT API `gpt-3.5-turbo`
