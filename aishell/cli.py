@@ -17,8 +17,15 @@ def ask(question: str, use_chatgpt: bool = False):
         query_client = GPT3Client()
 
     console = Console()
-    with console.status(f'[green] Asking `{question}` ...'):
+    with console.status(
+            f'''
+[green] AiShell is thinking of `{question}` ...[/green]
+
+[italic]AiShell is not responsible for any damage caused by the command executed by the user.[/italic]'''.strip(), ):
         response = query_client.query(question)
     console.print(f'[italic]ai$hell: {response}\n')
 
-    os.system(response)
+    will_execute = typer.confirm('Execute this command?')
+
+    if will_execute:
+        os.system(response)
