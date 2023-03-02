@@ -3,7 +3,7 @@ import os
 import typer
 from rich.console import Console
 
-from aishell.query_clients import ChatGPTClient, GPT3Client, QueryClient
+from aishell.query_clients import GPT3Client, QueryClient, ReverseEngineeredChatGPTClient
 
 cli_app = typer.Typer()
 
@@ -12,7 +12,7 @@ cli_app = typer.Typer()
 def ask(question: str, use_chatgpt: bool = False):
     query_client: QueryClient
     if use_chatgpt:
-        query_client = ChatGPTClient()
+        query_client = ReverseEngineeredChatGPTClient()
     else:
         query_client = GPT3Client()
 

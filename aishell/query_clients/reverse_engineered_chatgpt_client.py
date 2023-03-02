@@ -8,7 +8,7 @@ from aishell.utils import make_executable_command
 from .query_client import QueryClient
 
 
-class ChatGPTClient(QueryClient):
+class ReverseEngineeredChatGPTClient(QueryClient):
     access_key: str
 
     def __init__(
