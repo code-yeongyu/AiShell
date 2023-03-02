@@ -1,0 +1,1 @@
+from .openai_chatgpt_adapter import OpenAIChatGPTAdapter as OpenAIChatGPTAdapter

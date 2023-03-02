@@ -3,27 +3,28 @@ from typing import Optional, cast
 
 from revChatGPT.V1 import Chatbot
 
+from aishell.exceptions import UnauthorizedAccessError
 from aishell.utils import make_executable_command
 
 from .query_client import QueryClient
 
 
 class ReverseEngineeredChatGPTClient(QueryClient):
-    access_key: str
+    config: dict[str, str] = {}
 
     def __init__(
         self,
-        chatgpt_access_key: Optional[str] = None,
+        access_token: Optional[str] = None,
+        session_token: Optional[str] = None,
     ):
-        super().__init__()
-        CHATGPT_ACCESS_KEY = os.environ.get('CHATGPT_ACCESS_KEY')
-
-        if chatgpt_access_key is not None:
-            self.access_key = chatgpt_access_key
-        elif CHATGPT_ACCESS_KEY is not None:
-            self.access_key = CHATGPT_ACCESS_KEY
+        CHATGPT_ACCESS_TOKEN = os.environ.get('CHATGPT_ACCESS_TOKEN', access_token)
+        CHATGPT_SESSION_TOKEN = os.environ.get('CHATGPT_SESSION_TOKEN', session_token)
+        if CHATGPT_ACCESS_TOKEN is not None:
+            self.config['access_token'] = CHATGPT_ACCESS_TOKEN
+        elif CHATGPT_SESSION_TOKEN is not None:
+            self.config['session_token'] = CHATGPT_SESSION_TOKEN
         else:
-            raise Exception('access_key should not be none')
+            raise UnauthorizedAccessError('No access token or session token provided.')
 
     def _construct_prompt(self, text: str) -> str:
         return f'''You are now a translater from human language to {os.uname()[0]} shell command.
@@ -32,7 +33,7 @@ class ReverseEngineeredChatGPTClient(QueryClient):
 
     def query(self, prompt: str) -> str:
         prompt = self._construct_prompt(prompt)
-        chatbot = Chatbot(config={'access_token': self.access_key})
+        chatbot = Chatbot(config=self.config)
 
         response_text = ''
         for data in chatbot.ask(prompt):

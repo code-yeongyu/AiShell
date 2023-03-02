@@ -20,11 +20,6 @@ def get_project_path():
 
 
 @task
-def run(context: Context):
-    context.run(f'python {get_project_path()}/main.py', pty=True)
-
-
-@task
 def test(context: Context):
     context.run('pytest . --cov=. --cov-report=xml', pty=True)
 
