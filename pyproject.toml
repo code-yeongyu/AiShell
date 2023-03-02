@@ -45,6 +45,9 @@ openai = "^0.26.5"
 pydantic = "^1.10.4"
 pyright = "^1.1.294"
 
+[tool.poetry.scripts]
+aishell = "aishell:main"
+
 [tool.ruff.flake8-quotes]
 inline-quotes = "single"
 docstring-quotes = "single"
