@@ -1,5 +1,5 @@
 import os
-from typing import Optional
+from typing import Optional, cast
 
 from revChatGPT.V1 import Chatbot
 
@@ -8,7 +8,7 @@ from aishell.utils import make_executable_command
 from .query_client import QueryClient
 
 
-class ChatGPTClient(QueryClient):
+class ReverseEngineeredChatGPTClient(QueryClient):
     access_key: str
 
     def __init__(
@@ -38,6 +38,6 @@ class ChatGPTClient(QueryClient):
         for data in chatbot.ask(prompt):
             response_text = data['message']
 
-        response_text = make_executable_command(response_text)
+        response_text = make_executable_command(cast(str, response_text))
 
         return response_text
