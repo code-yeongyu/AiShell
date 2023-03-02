@@ -20,9 +20,10 @@ include = ["./*"]
 exclude = ["**/node_modules", "**/__pycache__"]
 
 # For untyped modules
-useLibraryCodeForTypes = true   # Attempt to read and infer types from third-party modules if no stub files are present
-reportMissingTypeStubs = false  # Ignore errors from modules without type stubs
-reportUnknownMemberType = false # Ignore errors from untyped function calls in third-party modules
+useLibraryCodeForTypes = true     # Attempt to read and infer types from third-party modules if no stub files are present
+reportMissingTypeStubs = false    # Ignore errors from modules without type stubs
+reportUnknownMemberType = false   # Ignore errors from untyped function calls in third-party modules
+reportUnknownVariableType = false # Ignore errors from untyped function calls in third-party modules
 
 
 [tool.yapf]
