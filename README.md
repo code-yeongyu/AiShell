@@ -38,10 +38,15 @@ aishell --help
 
 ### For those who want to use reverse-engineered `ChatGPT`
 
-1. Login on <https://chat.openai.com/>
-1. Get your 'accessToken` from <https://chat.openai.com/api/auth/session>
-1. Set the API key as an environment variable `CHATGPT_ACCESS_KEY`
-1. Enjoy AiShell
+- Permanent Login Method
+    1. Login on <https://chat.openai.com/>
+    1. Get your 'accessToken` from <https://chat.openai.com/api/auth/session>
+    1. Set the API key as an environment variable `CHATGPT_ACCESS_TOKEN`
+- Temporary Login Method
+    1. Just run `aishell <query>`
+    1. Browser opens up. Login there.
+    1. Tell AiShell which browser you use.
+    1. Enjoy AiShell
 
 ### For those who want to use `Official ChatGPT(GPT3.5-turbo)` or `GPT-3`
 
