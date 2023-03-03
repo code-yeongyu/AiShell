@@ -19,17 +19,21 @@ class ReverseEngineeredChatGPTClient(QueryClient):
 
     def __init__(
         self,
+        config: Optional[RevChatGPTChatbotConfigModel] = None,
         access_token: Optional[str] = None,
         session_token: Optional[str] = None,
     ):
-        CHATGPT_ACCESS_TOKEN = os.environ.get('CHATGPT_ACCESS_TOKEN', access_token)
-        CHATGPT_SESSION_TOKEN = os.environ.get('CHATGPT_SESSION_TOKEN', session_token)
-        if CHATGPT_ACCESS_TOKEN:
-            self._config = RevChatGPTChatbotConfigModel(access_token=CHATGPT_ACCESS_TOKEN)
-        elif CHATGPT_SESSION_TOKEN:
-            self._config = RevChatGPTChatbotConfigModel(session_token=CHATGPT_SESSION_TOKEN)
+        if config:
+            self._config = config
         else:
-            raise UnauthorizedAccessError('No access token or session token provided.')
+            CHATGPT_ACCESS_TOKEN = os.environ.get('CHATGPT_ACCESS_TOKEN', access_token)
+            CHATGPT_SESSION_TOKEN = os.environ.get('CHATGPT_SESSION_TOKEN', session_token)
+            if CHATGPT_ACCESS_TOKEN:
+                self._config = RevChatGPTChatbotConfigModel(access_token=CHATGPT_ACCESS_TOKEN)
+            elif CHATGPT_SESSION_TOKEN:
+                self._config = RevChatGPTChatbotConfigModel(session_token=CHATGPT_SESSION_TOKEN)
+            else:
+                raise UnauthorizedAccessError('No access token or session token provided.')
 
     def query(self, prompt: str) -> str:
         prompt = self._construct_prompt(prompt)
