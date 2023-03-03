@@ -1,5 +1,6 @@
 # AiShell 🤖
 
+[![codecov](https://codecov.io/gh/code-yeongyu/AiShell/branch/master/graph/badge.svg?token=MR72XGUQWJ)](https://codecov.io/gh/code-yeongyu/AiShell)
 [![Release Package to PyPI](https://github.com/code-yeongyu/AiShell/actions/workflows/release.yml/badge.svg)](https://github.com/code-yeongyu/AiShell/actions/workflows/release.yml)
 [![PyPI version](https://badge.fury.io/py/aishell.svg)](https://badge.fury.io/py/aishell)
 
