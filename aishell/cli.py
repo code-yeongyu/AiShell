@@ -5,7 +5,7 @@ import typer
 from rich.console import Console
 from yt_dlp.cookies import SUPPORTED_BROWSERS
 
-from aishell.adapters.openai_chatgpt_adapter import OpenAIChatGPTAdapter
+from aishell.adapters.openai_cookie_adapter import OpenAICookieAdapter
 from aishell.exceptions import UnauthorizedAccessError
 from aishell.models.language_model import LanguageModel
 from aishell.query_clients import GPT3Client, OfficialChatGPTClient, QueryClient, ReverseEngineeredChatGPTClient
@@ -32,7 +32,7 @@ def ask(question: str, language_model: LanguageModel = LanguageModel.REVERSE_ENG
             print('You are not logged in to OpenAI, attempting to log you in...')
             _open_chatgpt_browser()
             BROWSER_NAME = typer.prompt(f'Which browser did you use to log in? [{SUPPORTED_BROWSERS}]')
-            adapter = OpenAIChatGPTAdapter(BROWSER_NAME)
+            adapter = OpenAICookieAdapter(BROWSER_NAME)
             session_token = adapter.get_openai_session_token()
             query_client = ReverseEngineeredChatGPTClient(session_token=session_token)
 

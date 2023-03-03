@@ -5,10 +5,10 @@ from yt_dlp.cookies import SUPPORTED_BROWSERS, extract_cookies_from_browser
 from yt_dlp.utils import YoutubeDLCookieJar
 
 
-class OpenAIChatGPTAdapter:
+class OpenAICookieAdapter:
 
     def __init__(self, browser_name: str):
-        if browser_name not in SUPPORTED_BROWSERS:  # type: ignore
+        if browser_name not in SUPPORTED_BROWSERS:
             raise ValueError(f'Browser {browser_name} is not supported. Supported browsers are: {SUPPORTED_BROWSERS}')
         self.BROWSER_NAME = browser_name
 

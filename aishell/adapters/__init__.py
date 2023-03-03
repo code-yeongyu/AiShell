@@ -1,1 +1,1 @@
-from .openai_chatgpt_adapter import OpenAIChatGPTAdapter as OpenAIChatGPTAdapter
+from .openai_cookie_adapter import OpenAICookieAdapter as OpenAICookieAdapter
