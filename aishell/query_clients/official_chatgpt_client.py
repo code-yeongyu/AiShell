@@ -13,9 +13,8 @@ class OfficialChatGPTClient(QueryClient):
 
     def __init__(
         self,
-        openai_api_key: Optional[str] = None,
+        openai_api_key: str,
     ):
-        super().__init__()
         OPENAI_API_KEY: Optional[str] = os.environ.get('OPENAI_API_KEY', openai_api_key)
         if OPENAI_API_KEY is None:
             raise UnauthorizedAccessError('OPENAI_API_KEY should not be none')
@@ -31,6 +30,7 @@ class OfficialChatGPTClient(QueryClient):
         return executable_command
 
     def _construct_prompt(self, text: str) -> str:
-        return f'''You are now a translater from human language to {os.uname()[0]} shell command.
-        No explanation required, respond with only the raw shell command.
-        What should I type to shell for: {text}, in one line.'''
+        return f'''
+You are now a translater from human language to {os.uname()[0]} shell command.
+No explanation required, respond with only the raw shell command.
+What should I type to shell for: {text}, in one line.'''[1:]
