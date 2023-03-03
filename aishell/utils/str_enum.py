@@ -4,7 +4,12 @@ from typing import Any
 
 class StrEnum(str, Enum):
 
-    def _generate_next_value_(name: str, start: int, count: int, last_values: list[Any]):  # type: ignore
+    def _generate_next_value_(  # pyright: ignore [reportIncompatibleMethodOverride], for pyright's bug
+        name: str,
+        start: int,
+        count: int,
+        last_values: list[Any],
+    ):
         return name.lower()
 
     def __repr__(self):

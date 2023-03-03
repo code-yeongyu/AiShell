@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 
 from pydantic import BaseModel
 
@@ -16,9 +16,12 @@ class OpenAIResponseModel(BaseModel):
         prompt_tokens: int
         total_tokens: int
 
-    choices: Optional[List[Choice]]
+    choices: Optional[list[Choice]]
     created: int
     id: str
     model: str
     object: str
     usage: Usage
+
+    class Config:
+        frozen = True
