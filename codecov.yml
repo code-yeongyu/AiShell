@@ -1,2 +1,3 @@
 ignore:
-  - ^(?!aishell/).*
+  - ./monkey_patch_invoke.py
+  - ./tasks.py
