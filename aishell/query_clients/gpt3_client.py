@@ -29,8 +29,9 @@ class GPT3Client(QueryClient):
         return make_executable_command(response_text)
 
     def _construct_prompt(self, text: str) -> str:
-        return f'''User: You are now a translater from human language to {os.uname()[0]} shell command.
-        No explanation required, respond with only the raw shell command.
-        What should I type to shell for: {text}, in one line.
+        return f'''
+User: You are now a translater from human language to {os.uname()[0]} shell command.
+No explanation required, respond with only the raw shell command.
+What should I type to shell for: {text}, in one line.
 
-        You: '''
+You: '''[1:]

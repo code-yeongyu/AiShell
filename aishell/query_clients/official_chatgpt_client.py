@@ -31,6 +31,7 @@ class OfficialChatGPTClient(QueryClient):
         return executable_command
 
     def _construct_prompt(self, text: str) -> str:
-        return f'''You are now a translater from human language to {os.uname()[0]} shell command.
-        No explanation required, respond with only the raw shell command.
-        What should I type to shell for: {text}, in one line.'''
+        return f'''
+You are now a translater from human language to {os.uname()[0]} shell command.
+No explanation required, respond with only the raw shell command.
+What should I type to shell for: {text}, in one line.'''[1:]
