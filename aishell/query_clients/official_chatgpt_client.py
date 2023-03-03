@@ -13,9 +13,8 @@ class OfficialChatGPTClient(QueryClient):
 
     def __init__(
         self,
-        openai_api_key: Optional[str] = None,
+        openai_api_key: str,
     ):
-        super().__init__()
         OPENAI_API_KEY: Optional[str] = os.environ.get('OPENAI_API_KEY', openai_api_key)
         if OPENAI_API_KEY is None:
             raise UnauthorizedAccessError('OPENAI_API_KEY should not be none')

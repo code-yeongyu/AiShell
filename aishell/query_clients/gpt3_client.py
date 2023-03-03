@@ -11,6 +11,12 @@ from .query_client import QueryClient
 
 class GPT3Client(QueryClient):
 
+    def __init__(
+        self,
+        openai_api_key: str,
+    ):
+        openai.api_key = openai_api_key
+
     def query(self, prompt: str) -> str:
         prompt = self._construct_prompt(prompt)
         completion: Final[OpenAIResponseModel] = cast(
