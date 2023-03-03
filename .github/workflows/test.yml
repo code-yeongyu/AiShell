@@ -1,5 +1,8 @@
 name: Test
 on:
+  push:
+    branches:
+      - master
   pull_request:
 
 jobs:
@@ -32,3 +35,8 @@ jobs:
 
       - name: Run test
         run: poetry run invoke test
+
+      - name: Upload Code Coverage
+        run: bash <(curl -s https://codecov.io/bash)
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
