@@ -1,6 +1,6 @@
 from enum import auto
 
-from aishell.utils import StrEnum
+from .str_enum import StrEnum
 
 
 class LanguageModel(StrEnum):

@@ -16,6 +16,12 @@ A simple Python code that connects to OpenAI's ChatGPT and executes the returned
 - Automatically executes the command from the response of ChatGPT
 - Good for complex tasks like handling Git and extracting tar files
 - No need to search StackOverflow for commands, AiShell has got you covered
+- **No need to set up annoying retrieving of tokens or API keys with ChatGPT, as AiShell does it for you. INSTALL IT. EXECUTE IT. DONE.**
+
+## Prerequisites 📚
+
+- Python 3.9+
+- ChatGPT Account (or OpenAI Account)
 
 ## Installation 🔧
 
@@ -23,37 +29,29 @@ A simple Python code that connects to OpenAI's ChatGPT and executes the returned
 pip install aishell
 ```
 
-## Usage 📝
-
-```sh
-aishell --help
-```
-
-## Prerequisites 📚
-
-- Python 3
-- OpenAI API Key or ChatGPT Account
-
 ## Getting Started 🚀
 
-### For those who want to use reverse-engineered `ChatGPT`
+Let's just start by printing "Hello World" using AiShell.
 
-- Permanent Login Method
-    1. Login on <https://chat.openai.com/>
-    1. Get your 'accessToken` from <https://chat.openai.com/api/auth/session>
-    1. Set the API key as an environment variable `CHATGPT_ACCESS_TOKEN`
-- Temporary Login Method
-    1. Just run `aishell <query>`
-    1. Browser opens up. Login there.
-    1. Tell AiShell which browser you use.
-    1. Enjoy AiShell
+```sh
+aishell 'print Hello World'
+```
+
+## Advanced Settings 🛠
 
 ### For those who want to use `Official ChatGPT(GPT3.5-turbo)` or `GPT-3`
 
 1. Create account on OpenAI
 1. Go to <https://platform.openai.com/account/api-keys>, Copy API key
-1. Set the API key as an environment variable `OPENAI_API_KEY`
-1. Enjoy AiShell
+1. Modify or create `~/.aishell/config.json` file like following
+
+    ```sh
+    {
+        ...
+        "language_model": <language model of your preference>, //"official_chatgpt" or "gpt3"
+        "openai_api_key": <your openai api key>
+    }
+    ```
 
 ## Contributions 💬
 
