@@ -18,6 +18,3 @@ class RevChatGPTChatbotConfigModel(BaseModel):
             raise ValueError('No information for authentication provided.')
 
         return values
-
-    class Config:
-        frozen = True
