@@ -15,23 +15,26 @@ A simple Python code that connects to OpenAI's ChatGPT and executes the returned
 - Interact with your computer using natural language
 - Automatically executes the command from the response of ChatGPT
 - Good for complex tasks like handling Git and extracting tar files
-- No need to search StackOverflow for commands, AiShell has got you covered
-- **No need to set up annoying retrieving of tokens or API keys with ChatGPT, as AiShell does it for you. INSTALL IT. EXECUTE IT. DONE.**
+- No need to search StackOverflow for commands, `AiShell` has got you covered
+- `AiShell` simplifies the process of setting up and retrieving tokens or API keys.
+  - With `AiShell`, you don't have to worry about the technical details.
+  - Simply install `AiShell`, execute it, and you're ready to go!
 
 ## Prerequisites 📚
 
 - Python 3.9+
 - ChatGPT Account (or OpenAI Account)
 
-## Installation 🔧
+## Getting Started 🚀
+
+To begin using `AiShell`, start by installing it with pip:
 
 ```sh
 pip install aishell
 ```
 
-## Getting Started 🚀
-
-Let's just start by printing "Hello World" using AiShell.
+Once you've installed `AiShell`, you can start using it right away.
+For example, to print "Hello World" using `AiShell`, enter the following command:
 
 ```sh
 aishell 'print Hello World'
@@ -39,20 +42,22 @@ aishell 'print Hello World'
 
 ## Advanced Settings 🛠
 
-### For those who want to use `Official ChatGPT(GPT3.5-turbo)` or `GPT-3`
+By default, `AiShell` is configured to use the reverse-engineered ChatGPT client and retrieve login information from your browser, so you don't need to configure anything to use `AiShell`. However, for those who want to use different models with an OpenAI API Key, you can configure it as follows:
 
-1. Create account on OpenAI
-1. Go to <https://platform.openai.com/account/api-keys>, Copy API key
-1. Modify or create `~/.aishell/config.json` file like following
+1. Create an account on OpenAI.
+1. Go to <https://platform.openai.com/account/api-keys> and copy your API key.
+1. Modify or create the `~/.aishell/config.json` file as follows:
 
-    ```sh
-    {
-        ...
-        "language_model": <language model of your preference>, //"official_chatgpt" or "gpt3"
-        "openai_api_key": <your openai api key>
-    }
-    ```
+  ```json
+  {
+      ...
+      "language_model": <language model of your preference>, //"official_chatgpt" or "gpt3"
+      "openai_api_key": <your OpenAI API key>
+  }
+  ```
+
+Here, you can specify the language model of your preference, such as "official_chatgpt" or "gpt3", and add your OpenAI API key. This will enable AiShell to use the specified language model and API key when executing commands.
 
 ## Contributions 💬
 
-Feel free to contribute to AiShell by adding more functionality or fixing bugs.
+Feel free to contribute to `AiShell` by adding more functionality or fixing bugs.
