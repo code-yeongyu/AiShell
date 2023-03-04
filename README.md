@@ -4,7 +4,6 @@
 [![Release Package to PyPI](https://github.com/code-yeongyu/AiShell/actions/workflows/release.yml/badge.svg)](https://github.com/code-yeongyu/AiShell/actions/workflows/release.yml)
 [![PyPI version](https://badge.fury.io/py/aishell.svg)](https://badge.fury.io/py/aishell)
 
-
 A simple Python code that connects to OpenAI's ChatGPT and executes the returned results.
 
 ## Demo
