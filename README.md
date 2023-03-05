@@ -6,6 +6,8 @@
 
 A simple Python code that connects to OpenAI's ChatGPT and executes the returned results.
 
+If you are interested in these projects, please checkout AiShell's brother project: [YGK-a](https://github.com/code-yeongyu/YGK-a). YGK-a is a client for the ChatGPT from your terminal, and also supports unix/linux pipelines.
+
 ## Demo
 
 ![Demo](https://raw.githubusercontent.com/code-yeongyu/AiShell/master/images/example.gif)
