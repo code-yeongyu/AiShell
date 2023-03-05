@@ -26,14 +26,6 @@
     "python.testing.pytestArgs": [
         "."
     ],
-    "emeraldwalk.runonsave": {
-        "commands": [
-            {
-                "match": "\\.py$",
-                "cmd": "${workspaceFolder}/.venv/bin/pautoflake --in-place ${file}"
-            }
-        ]
-    },
     "[toml]": {
         "editor.defaultFormatter": "tamasfe.even-better-toml"
     },
