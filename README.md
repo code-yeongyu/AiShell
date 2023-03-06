@@ -3,6 +3,7 @@
 [![codecov](https://codecov.io/gh/code-yeongyu/AiShell/branch/master/graph/badge.svg?token=MR72XGUQWJ)](https://codecov.io/gh/code-yeongyu/AiShell)
 [![Release Package to PyPI](https://github.com/code-yeongyu/AiShell/actions/workflows/release.yml/badge.svg)](https://github.com/code-yeongyu/AiShell/actions/workflows/release.yml)
 [![PyPI version](https://badge.fury.io/py/aishell.svg)](https://badge.fury.io/py/aishell)
+[![Downloads](https://static.pepy.tech/personalized-badge/aishell?period=month&units=international_system&left_color=grey&right_color=green&left_text=Downloads)](https://pepy.tech/project/aishell)
 
 A simple Python code that connects to OpenAI's ChatGPT and executes the returned results.
 
