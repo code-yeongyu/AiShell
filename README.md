@@ -49,7 +49,7 @@ By default, `AiShell` is configured to use the reverse-engineered ChatGPT client
 
 1. Create an account on OpenAI.
 1. Go to <https://platform.openai.com/account/api-keys> and copy your API key.
-1. Modify or create the `~/.aishell/config.json` file as follows:
+1. Modify or create the `~/.aishell_config.json` file as follows:
 
   ```json
   {
