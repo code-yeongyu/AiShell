@@ -1,0 +1,65 @@
+name: Pull Request
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Setup Poetry
+        uses: abatilo/actions-poetry@v2
+
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('./poetry.lock') }}
+
+      - name: Install Dependencies if cache doesn't hit
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: poetry install
+
+      - name: Run test
+        run: poetry run invoke test
+
+      - name: Upload Code Coverage
+        run: bash <(curl -s https://codecov.io/bash)
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Setup Poetry
+        uses: abatilo/actions-poetry@v2
+
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('./poetry.lock') }}
+
+      - name: Install Dependencies if cache doesn't hit
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: poetry install
+
+      - name: Check Code Styles
+        run: poetry run invoke check
