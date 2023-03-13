@@ -14,20 +14,18 @@ jobs:
         with:
           python-version: 3.9
 
-      - uses: snok/install-poetry@v1.3.3
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
+      - name: Setup Poetry
+        uses: abatilo/actions-poetry@v2
 
       - name: Cache Dependencies
-        uses: actions/cache@v2
-        id: cache-dependencies
+        uses: actions/cache@v3
+        id: cache
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+          key: venv-${{ runner.os }}-${{ hashFiles('./poetry.lock') }}
 
       - name: Install Dependencies if cache doesn't hit
-        if: steps.cache-dependencies.cache-hit != 'true'
+        if: steps.cache.outputs.cache-hit != 'true'
         run: poetry install
 
       - name: Publish to PyPI
