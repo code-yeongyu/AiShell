@@ -1,5 +1,5 @@
 import os
-from typing import Optional, Union, cast
+from typing import Optional, Union
 
 from revChatGPT.V1 import Chatbot
 
@@ -42,9 +42,9 @@ class ReverseEngineeredChatGPTClient(QueryClient):
 
         response_text = ''
         for data in chatbot.ask(prompt):
-            response_text = data['message']
+            response_text = data['message']  # type: ignore
 
-        response_text = make_executable_command(cast(str, response_text))
+        response_text = make_executable_command(response_text)
 
         return response_text
 
