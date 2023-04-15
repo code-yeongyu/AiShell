@@ -1,3 +1,9 @@
 ignore:
   - ./monkey_patch_invoke.py
   - ./tasks.py
+
+coverage:
+  status:
+    project: no
+    patch: no
+    changes: no

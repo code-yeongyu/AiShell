@@ -36,7 +36,7 @@ allow_split_before_dict_value = false
 
 [tool.ruff]
 line-length = 119
-select = ["PLE", "PLR", "PLW", "E", "W", "F", "I", "Q", "C", "B"]
+select = ["PLE", "PLW", "E", "W", "F", "I", "Q"]
 
 [tool.pytest.ini_options]
 addopts = ["--cov=aishell"]
@@ -52,7 +52,7 @@ pydantic = "^1.10.5"
 yt-dlp = "^2023.3.3"
 
 [tool.poetry.scripts]
-aishell = "aishell:main"
+ygka = "ygka:main"
 
 [tool.ruff.flake8-quotes]
 inline-quotes = "single"
