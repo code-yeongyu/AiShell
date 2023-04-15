@@ -5,8 +5,6 @@ import toml
 from invoke import Context, task
 from invoke.exceptions import UnexpectedExit
 
-import monkey_patch_invoke as _  # noqa: F401
-
 
 def get_pep8_compliant_name(project_name: str) -> str:
     return project_name.replace('-', '_')
@@ -21,7 +19,7 @@ def get_project_path():
 
 @task
 def test(context: Context):
-    context.run('pytest . --cov=. --cov-report=xml', pty=True)
+    context.run('pytest . -s --cov=. --cov-report=xml', pty=True)
 
 
 @task
