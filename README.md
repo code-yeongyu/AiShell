@@ -49,17 +49,17 @@ By default, `AiShell` is configured to use the reverse-engineered ChatGPT client
 
 1. Create an account on OpenAI.
 1. Go to <https://platform.openai.com/account/api-keys> and copy your API key.
-1. Modify or create the `~/.aishell_config.json` file as follows:
+1. Modify or create the `~/.ygka_openai_config.json` file as follows:
 
   ```json
   {
       ...
-      "language_model": <language model of your preference>, //"official_chatgpt" or "gpt3"
-      "openai_api_key": <your OpenAI API key>
+      "language_model": "official_chatgpt",
+      "openai_api_key": "<your OpenAI API key>"
   }
   ```
 
-Here, you can specify the language model of your preference, such as "official_chatgpt" or "gpt3", and add your OpenAI API key. This will enable AiShell to use the specified language model and API key when executing commands.
+Here, you can add your OpenAI API key. This will enable AiShell to use the official chatgpt api and the API key when executing commands.
 
 ## Contributions 💬
 
