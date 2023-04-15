@@ -45,11 +45,9 @@ addopts = ["--cov=aishell"]
 [tool.poetry.dependencies]
 python = "^3.9"
 poetry = "^1.4.0"
-revchatgpt = "^4.1.6"
 typer = { extras = ["all"], version = "^0.7.0" }
-openai = "^0.27.4"
-pydantic = "^1.10.5"
-yt-dlp = "^2023.3.3"
+ygka = "^2023.4.16.post1"
+revchatgptauth = "^2023.4.16"
 
 [tool.poetry.scripts]
 ygka = "ygka:main"
@@ -61,11 +59,12 @@ multiline-quotes = "single"
 
 [tool.poetry.group.dev.dependencies]
 toml = "^0.10.2"
+types-toml = "^0.10.8.6"
+invoke = "^2.0.0"
+types-invoke = "^2.0.0.6"
+ruff = "^0.0.261"
 yapf = "^0.32.0"
+pyright = "^1.1.302"
 pytest = "^7.2.2"
 pytest-cov = "^4.0.0"
-invoke = "^1.7.3"
-ruff = "^0.0.199"
-types-invoke = "^1.7.3.16"
-types-toml = "^0.10.8.5"
-pyright = "^1.1.296"
+pytest-sugar = "^0.9.7"

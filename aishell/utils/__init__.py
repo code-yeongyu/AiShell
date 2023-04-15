@@ -1,2 +1,1 @@
-from .aishell_config_manager import AiShellConfigManager as AiShellConfigManager
-from .make_executable_command import make_executable_command as make_executable_command
+from .construct_prompt import construct_prompt as construct_prompt
