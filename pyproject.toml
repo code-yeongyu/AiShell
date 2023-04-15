@@ -45,10 +45,7 @@ addopts = ["--cov=aishell"]
 [tool.poetry.dependencies]
 python = "^3.9"
 poetry = "^1.4.0"
-revchatgpt = "^4.1.6"
 typer = { extras = ["all"], version = "^0.7.0" }
-openai = "^0.27.4"
-pydantic = "^1.10.5"
 ygka = "^2023.4.16.post1"
 revchatgptauth = "^2023.4.16"
 
