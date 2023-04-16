@@ -50,7 +50,7 @@ ygka = "^2023.4.16.post1"
 revchatgptauth = "^2023.4.16"
 
 [tool.poetry.scripts]
-ygka = "ygka:main"
+aishell = "aishell:main"
 
 [tool.ruff.flake8-quotes]
 inline-quotes = "single"
