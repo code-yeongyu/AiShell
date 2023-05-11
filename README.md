@@ -36,6 +36,11 @@ To begin using `AiShell`, start by installing it with pip:
 pip install aishell
 ```
 
+Or you can use pipx:
+```sh
+pipx install aishell
+```
+
 Once you've installed `AiShell`, you can start using it right away.
 For example, to print "Hello World" using `AiShell`, enter the following command:
 
